@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 xList = []
 stepsList = []
 x = int(input("Enter your starting number: "))
+speed = float(input("Enter the speed of animation in secs per plot: "))
 step = 0
 
 while True:
@@ -15,19 +16,21 @@ while True:
 
     if x % 2 == 0 :
         x = x / 2
-        print(str(x) + " at step number:  " + str(step))
+
     elif x == 1 :
         print("done")
         break
     else:
         x = 3 * x + 1
-        print(str(x) + " at step number:  " + str(step))
 
-print(stepsList)
-print(xList)
+    plt.title('3x + 1')
+    plt.xlabel('Steps')
+    plt.ylabel('Value of x')
+
+    plt.plot(stepsList, xList)
+    plt.pause(speed)
+    plt.cla()
 
 plt.plot(stepsList, xList)
-plt.title('3x + 1')
-plt.xlabel('Steps')
-plt.ylabel('Value of x')
 plt.show()
+print(xList)
